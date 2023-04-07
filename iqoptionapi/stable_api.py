@@ -511,6 +511,8 @@ class IQ_Option:
 
     def get_candles(self, ACTIVES, interval, count, endtime):
         self.api.candles.candles_data = None
+        contagem=0
+        timeout=10
         while True:
             try:
                 if ACTIVES not in OP_code.ACTIVES:
@@ -518,13 +520,22 @@ class IQ_Option:
                     break
                 self.api.getcandles(
                     OP_code.ACTIVES[ACTIVES], interval, count, endtime)
+                
                 while self.check_connect and self.api.candles.candles_data == None:
-                    pass
+                    contagem+=1
+                    print(contagem)
+                    time.sleep(1)            
+                    if(contagem>=timeout):
+                        raise Exception("timout 30s do get_candles")
+                    
+                    
                 if self.api.candles.candles_data != None:
                     break
             except:
                 logging.error('**error** get_candles need reconnect')
                 self.connect()
+                time.sleep(1)
+                
 
         return self.api.candles.candles_data
 
