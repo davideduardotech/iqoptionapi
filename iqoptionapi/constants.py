@@ -133,15 +133,6 @@
 "Dollar_Index": 2062,
 """
 ACTIVES = {
-  "USDCHF-OTC": 78,
-  "EURJPY-OTC": 79,
-  "NZDUSD-OTC": 80,
-  "GBPUSD-OTC": 81,
-  "GBPJPY-OTC": 84,
-  "USDJPY-OTC": 85,
-  "EURUSD-OTC": 76,
-  "NZDCAD-OTC": 2137,
-  "USDSGD-OTC": 1381,
   "AUDUSD": 99,
   "GBPAUD": 104,
   "EURGBP_GS": 2133,
